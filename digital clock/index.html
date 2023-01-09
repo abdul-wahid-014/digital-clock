@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        h1{
+            text-align: center;
+            font-size: 50px;
+            background-color: chartreuse;
+        }
+        .text{
+            display: flex;
+            color: chartreuse;
+            font-weight: bold;
+            font-size: 46px;
+            text-align:right;
+            justify-content: center;
+            border: 3px solid chartreuse;
+            margin: 3px;
+        }
+        span{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>DIGITAL CLOCK</h1>
+    <h2 class="text">Date: <span id="date"></span></h2>
+    <h2 class="text">Month: <span id="month"></span></h2>
+    <h2 class="text">Year: <span id="year"></span></h2>
+    <h2 class="text">Hours: <span id="hr"></span></h2>
+    <h2 class="text">Minutes: <span id="min"></span></h2>
+    <h2 class="text">Seconds: <span id="sec"></span></h2>
+    <h2 class="text">MilliSeconds: <span id="msec"></span></h2>
+    <h2 class="text">Day: <span id="day"></span></h2>
+</body>
+<script>
+    var hr=document.getElementById('hr');
+    var min=document.getElementById('min');
+    var sec=document.getElementById('sec');
+    var msec=document.getElementById('msec');
+    var tdate=document.getElementById('date');
+    var tmonth=document.getElementById('month');
+    var tyear=document.getElementById('year');
+    var tday=document.getElementById('day');
+
+    var inter=setInterval(digiclock,10);
+    function digiclock(){
+        var a = new Date();
+        tyear.innerHTML=a.getFullYear();
+        tdate.innerHTML=a.getDate();
+        msec.innerHTML=a.getMilliseconds();
+        sec.innerHTML=a.getSeconds();
+        min.innerHTML=a.getMinutes();
+        hr.innerHTML=a.getHours();
+        if(a.getDay()==0){
+            tday.innerHTML='Sunday';
+        }
+        else if(a.getDay()==1){
+            tday.innerHTML='Monday';
+        }
+        else if(a.getDay()==2){
+            tday.innerHTML='Tuesday';
+        }
+        else if(a.getDay()==3){
+            tday.innerHTML='Wednesday';
+        }
+        else if(a.getDay()==4){
+            tday.innerHTML='Thursday';
+        }
+        else if(a.getDay()==5){
+            tday.innerHTML='Friday';
+        }
+        else if(a.getDay()==6){
+            tday.innerHTML='Saturday';
+        }
+        tmonth.innerHTML=a.getMonth()+1;
+    }
+
+</script>
+</html>
